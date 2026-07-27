@@ -12,45 +12,65 @@ Welcome to the **FastAPI & REST API Mastery Lab**! This repository documents a s
 
 ## 📂 Repository Structure
 
-The project is structured logically into daily progressive modules:
+The project is structured logically into self-contained, topic-focused modules:
 
 ```text
 fastapi-rest-api-mastery/
 │
-├── 01_rest_api_basics/        # Day 1: Fundamentals of HTTP methods & REST endpoints
-├── 02_employee_api/           # Day 2: Employee Management CRUD API
-├── 03_movie_api/              # Day 3: Movie Catalog API with structured schemas
-├── 04_auth_and_exceptions/    # Day 4: Exception Handling & Custom Middleware
-└── 05_school_management_api/  # Day 5: Full Modular FastAPI School System (Users, Teachers, Students, Books)
+├── 01_rest_api_basics/             # REST HTTP methods & endpoint basics
+│   └── main.py
+│
+├── 02_employee_crud_api/           # Employee CRUD operations API
+│   ├── main.py
+│   └── models.py
+│
+├── 03_movie_catalog_api/           # Movie Catalog API with structured routes
+│   ├── main.py
+│   └── models.py
+│
+├── 04_auth_and_exceptions_api/     # Custom Exception Handlers & Authorization middleware
+│   ├── main.py
+│   └── authorization.py
+│
+└── 05_school_management_system/    # Full Modular FastAPI School System (Users, Teachers, Students, Books)
+    ├── .env
+    └── app/
+        ├── __init__.py
+        ├── main.py
+        ├── auth.py
+        ├── config.py
+        ├── database.py
+        ├── models.py
+        └── schemas.py
 ```
 
 ---
 
-## 🌟 Progressive Learning Journey
+## 🌟 Modules Breakdown
 
-### 1️⃣ `first day` (REST API Basics)
-- Basic REST architecture, request routes, and JSON responses.
-- Handling `GET` and `POST` methods.
+### 1️⃣ `01_rest_api_basics`
+- Fundamentals of RESTful web services.
+- Basic request routing (`GET`, `POST`) and JSON responses.
 
-### 2️⃣ `second day` (Employee API)
-- Implementing standard CRUD operations for Employee records.
-- Integrating basic data models.
+### 2️⃣ `02_employee_crud_api`
+- Complete CRUD (Create, Read, Update, Delete) cycle for Employee data.
+- Basic model representation and request handling.
 
-### 3️⃣ `third day` (Movie API)
-- Structuring APIs with modular routers and request schemas.
-- Filtering and managing movie inventories.
+### 3️⃣ `03_movie_catalog_api`
+- Movie catalog service.
+- Query parameter filtering, item creation, and collection retrieval.
 
-### 4️⃣ `forth day` (Auth & Exception Handling)
-- Centralized exception handlers for `404 Not Found` and validation errors.
-- Custom authentication/authorization header verification middleware.
+### 4️⃣ `04_auth_and_exceptions_api`
+- Advanced error handling: custom HTTP exceptions (`404 Not Found`, validation errors).
+- Custom request headers & token authorization middleware.
 
-### 5️⃣ `fifth day` (Full School Management System) 🏆
-A full-stack backend modular application featuring:
-- **Teachers CRUD**: Manage faculty profiles with `GET`, `POST`, `PUT`, `DELETE`.
-- **User & Student Portal**: User registration and student assignment models.
+### 5️⃣ `05_school_management_system` 🏆
+Production-grade modular FastAPI application featuring:
+- **Teachers API**: Full CRUD endpoints (`/teachers`) with status codes & validation.
+- **Students & Users Portal**: Linked user accounts and student profiles.
 - **Library Management**: Relational schema associating Books with Students & Users (`ManyToMany` relationships with SQLAlchemy).
 - **ORM & Database**: Configured SQLite with SQLAlchemy ORM models (`app/models.py`).
-- **Data Validation**: Strict Pydantic v2 schemas (`app/schemes.py`).
+- **Data Validation**: Strict Pydantic v2 schemas (`app/schemas.py`).
 
 ---
 
@@ -85,10 +105,9 @@ source .venv/bin/activate  # On Linux/macOS
 pip install -r requirements.txt
 ```
 
-### 4. Run the Full School Management API (Day 5)
+### 4. Run the Full School Management API (Module 5)
 ```bash
-# Navigate to the fifth day folder or run uvicorn
-cd "fifth day"
+cd 05_school_management_system
 uvicorn app.main:app --reload
 ```
 
